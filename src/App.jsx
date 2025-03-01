@@ -8,6 +8,7 @@ const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
+const OgPreview = lazy(() => import("./pages/OgPreview"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="projects" element={<Projects />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="og-preview" element={<OgPreview />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
