@@ -121,8 +121,8 @@ const Contact = () => {
     {
       icon: <FiMapPin size={24} />,
       title: "Location",
-      value: "Butwal, Rupendehi",
-      link: "https://maps.google.com/?q=Butwal,+Rupendehi",
+      value: "Kathmandu, Nepal",
+      link: "https://maps.google.com/?q=Kathmandu,+Nepal",
     },
   ];
 
@@ -452,14 +452,14 @@ const Contact = () => {
         <div className="container">
           <h2 className="section-title text-center">My Location</h2>
           <p className="text-secondary-600 dark:text-secondary-300 text-center max-w-2xl mx-auto mb-12">
-            Based in San Francisco, but working with clients worldwide.
+            Based in Kathmandu, Nepal, but working with clients worldwide.
           </p>
 
           <div className="rounded-xl overflow-hidden shadow-lg h-96">
             <iframe
               title="Location Map"
               className="w-full h-full border-0"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.50764017948553!3d37.75781499657369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1623252234927!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.27776845703!2d85.29111321979657!3d27.709031933787002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2sus!4v1710735669068!5m2!1sen!2sus"
               loading="lazy"
             ></iframe>
           </div>
