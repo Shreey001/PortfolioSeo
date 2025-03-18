@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   FiMail,
-  FiPhone,
   FiMapPin,
   FiSend,
   FiGithub,
@@ -13,9 +13,10 @@ import AnimatedSection from "../components/AnimatedSection";
 import Seo from "../components/Seo";
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     subject: "",
     message: "",
   });
@@ -27,6 +28,11 @@ const Contact = () => {
     message: "",
   });
 
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -37,9 +43,10 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submission started");
 
     // Validate form
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.user_name || !formData.user_email || !formData.message) {
       setFormStatus({
         isSubmitting: false,
         isSubmitted: false,
@@ -57,35 +64,48 @@ const Contact = () => {
       message: "",
     });
 
-    // Simulate form submission
     try {
-      // In a real application, you would send the form data to your backend or a form service
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      console.log("Sending email with EmailJS...");
+      console.log("Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
+      console.log("Template ID:", import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
 
-      // Reset form on success
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current
+      );
 
-      // Set success state
-      setFormStatus({
-        isSubmitting: false,
-        isSubmitted: true,
-        isError: false,
-        message:
-          "Your message has been sent successfully! I will get back to you soon.",
-      });
+      console.log("EmailJS Response:", result);
+
+      if (result.text === "OK") {
+        // Reset form on success
+        setFormData({
+          user_name: "",
+          user_email: "",
+          subject: "",
+          message: "",
+        });
+
+        // Set success state
+        setFormStatus({
+          isSubmitting: false,
+          isSubmitted: true,
+          isError: false,
+          message:
+            "Your message has been sent successfully! I will get back to you soon.",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
-      // Set error state
+      console.error("EmailJS Error:", error);
+      // Set error state with more specific error message
       setFormStatus({
         isSubmitting: false,
         isSubmitted: false,
         isError: true,
         message:
-          "There was an error sending your message. Please try again later.",
+          "Failed to send message. Please check your EmailJS configuration or try again later.",
       });
     }
   };
@@ -95,14 +115,8 @@ const Contact = () => {
     {
       icon: <FiMail size={24} />,
       title: "Email",
-      value: "shreejanbhattarai@gmail.com",
-      link: "mailto:shreejanbhattarai@gmail.com",
-    },
-    {
-      icon: <FiPhone size={24} />,
-      title: "Phone",
-      value: "+977 9866583430 ",
-      link: "tel:+9779866583430",
+      value: "shreejanid123@gmail.com",
+      link: "mailto:shreejanid123@gmail.com",
     },
     {
       icon: <FiMapPin size={24} />,
@@ -240,6 +254,7 @@ const Contact = () => {
                   </motion.div>
                 ) : (
                   <form
+                    ref={form}
                     onSubmit={handleSubmit}
                     className="space-y-4 sm:space-y-6"
                   >
@@ -253,16 +268,16 @@ const Contact = () => {
                       {/* Name Field */}
                       <div>
                         <label
-                          htmlFor="name"
+                          htmlFor="user_name"
                           className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1"
                         >
                           Name <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
+                          id="user_name"
+                          name="user_name"
+                          value={formData.user_name}
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -273,16 +288,16 @@ const Contact = () => {
                       {/* Email Field */}
                       <div>
                         <label
-                          htmlFor="email"
+                          htmlFor="user_email"
                           className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1"
                         >
                           Email <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
+                          id="user_email"
+                          name="user_email"
+                          value={formData.user_email}
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500"

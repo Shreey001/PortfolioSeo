@@ -36,7 +36,7 @@ const Footer = () => {
     },
     {
       icon: <FiMail size={20} />,
-      url: "mailto:shreejanbhattarai@gmail.com",
+      url: "mailto:shreejanid123@gmail.com",
       label: "Email",
     },
   ];
@@ -107,8 +107,7 @@ const Footer = () => {
             </h3>
             <div className="space-y-2 text-secondary-600 dark:text-secondary-400">
               <p>Butwal, Rupendehi</p>
-              <p>shreejanbhattarai@gmail.com</p>
-              <p>+977 9866583430</p>
+              <p>shreejanid123@gmail.com</p>
             </div>
           </div>
         </div>

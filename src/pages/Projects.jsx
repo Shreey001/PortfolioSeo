@@ -3,79 +3,84 @@ import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import AnimatedSection from "../components/AnimatedSection";
 import Seo from "../components/Seo";
-import PlaceholderImage from "../components/PlaceholderImage";
+import project1 from "../assets/projects/project1.png";
+import project2 from "../assets/projects/project2.png";
+import project3 from "../assets/projects/project3.png";
+import project4 from "../assets/projects/project4.png";
+import project5 from "../assets/projects/project5.png";
+import project6 from "../assets/projects/project6.png";
 
 const Projects = () => {
   // All projects data
   const allProjects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Trendify-Fashion E-Commerce Platform",
       description:
-        "A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product search, cart functionality, and payment processing.",
-      image: <PlaceholderImage text="E-Commerce Platform" />,
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+        "Full-stack Fashion clothing e-commerce solution with user authentication, payment processing, and order management.",
+      image: project2,
+      tags: ["React", "Node.js", "MongoDB", "Express"],
       category: "fullstack",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+      liveUrl: "https://trendify-frontend-dusky.vercel.app/",
+      githubUrl: "https://github.com/Shreey001/Trendify-Fashion-Ecommerce-Site",
       featured: true,
     },
     {
       id: 2,
-      title: "Task Management App",
+      title: "Vistagram-Connect and Inspire",
       description:
-        "A productivity app for managing tasks and projects with team collaboration features.",
-      image: <PlaceholderImage text="Task Management App" bgColor="#0369a1" />,
-      tags: ["React", "Firebase", "Tailwind CSS"],
-      category: "frontend",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+        "A fullstack social media platform with user authentication, post creation, and real-time updates.",
+      image: project3,
+      tags: ["React", "Node.js", "MongoDB", "Socket.io"],
+      category: "fullstack",
+      liveUrl: "https://vistagram.vercel.app",
+      githubUrl: "https://github.com/Shreey001/vistagram",
+      featured: true,
     },
     {
       id: 3,
-      title: "Portfolio Website",
+      title: "E-Tea-Nepal-a multi-vendor Tea selling website",
       description:
-        "A responsive portfolio website built with React and Framer Motion for smooth animations.",
-      image: <PlaceholderImage text="Portfolio Website" bgColor="#075985" />,
-      tags: ["React", "Framer Motion", "Tailwind CSS"],
-      category: "frontend",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+        "A fullstack tea buying and selling website with buyer, seller and admin with order management and payment integration.",
+      image: project4,
+      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      category: "fullstack",
+      liveUrl: "https://e-tea-nepal.vercel.app/",
+      githubUrl: "https://github.com/Shreey001/eTeaNepal",
     },
     {
       id: 4,
-      title: "Weather Dashboard",
+      title: "Personal Portfolio",
       description:
-        "A weather application that displays current weather and forecasts for any location using the OpenWeather API.",
-      image: <PlaceholderImage text="Weather Dashboard" bgColor="#0c4a6e" />,
-      tags: ["JavaScript", "API", "CSS"],
+        "A personal portfolio website to showcase my projects and skills.",
+      image: project6,
+      tags: ["React", "Tailwind CSS", "Framer Motion"],
       category: "frontend",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+      liveUrl: "https://portfolio-seo-nu.vercel.app/",
+      githubUrl: "https://github.com/Shreey001/PortfolioSeo",
+      featured: true,
     },
     {
       id: 5,
-      title: "Blog API",
+      title: "Quiz App",
       description:
-        "A RESTful API for a blog platform built with Node.js, Express, and MongoDB.",
-      image: <PlaceholderImage text="Blog API" bgColor="#082f49" />,
-      tags: ["Node.js", "Express", "MongoDB", "REST API"],
-      category: "backend",
-      githubUrl: "https://github.com/yourusername/project",
+        "Quiz app with 10 questions to test your knowledge and score at last using HTML, CSS and JavaScript.",
+      image: project5,
+      tags: ["HTML", "CSS", "JavaScript"],
+      category: "frontend",
+      liveUrl: "https://quizapp-pink-mu.vercel.app/",
+      githubUrl: "https://github.com/Shreey001/quizapp",
     },
     {
       id: 6,
-      title: "Social Media Dashboard",
+      title: "Social Media Clone",
       description:
-        "A dashboard for managing and analyzing social media accounts and performance.",
-      image: (
-        <PlaceholderImage text="Social Media Dashboard" bgColor="#0ea5e9" />
-      ),
-      tags: ["React", "Chart.js", "Material UI"],
+        "A Facebook-like frontend clone with theme and color change feature and responsive design.",
+      image: project1,
+      tags: ["React", "CSS", "Responsive Design"],
       category: "frontend",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
-      featured: true,
+      liveUrl: "https://socialmediaclone-one.vercel.app/",
+      githubUrl: "https://github.com/Shreey001/socialmediaclone",
     },
   ];
 
@@ -305,31 +310,17 @@ const Projects = () => {
             {[
               {
                 quote:
-                  "Working with YourName was a fantastic experience. They delivered our project on time and exceeded our expectations with their attention to detail and creative solutions.",
+                  "Working with ShreeyJan was a fantastic experience. They delivered our project on time and exceeded our expectations with their attention to detail and creative solutions.",
                 author: "Jane Smith",
                 position: "CEO, Tech Startup",
-                image: (
-                  <PlaceholderImage
-                    width={64}
-                    height={64}
-                    text="JS"
-                    bgColor="#0ea5e9"
-                  />
-                ),
+                initials: "JS",
               },
               {
                 quote:
-                  "YourName is a highly skilled developer who brings both technical expertise and creative thinking to every project. I highly recommend their services.",
+                  "ShreeyJan is a highly skilled developer who brings both technical expertise and creative thinking to every project. I highly recommend their services.",
                 author: "John Doe",
                 position: "Marketing Director, Agency XYZ",
-                image: (
-                  <PlaceholderImage
-                    width={64}
-                    height={64}
-                    text="JD"
-                    bgColor="#0284c7"
-                  />
-                ),
+                initials: "JD",
               },
             ].map((testimonial, index) => (
               <motion.div
@@ -341,8 +332,8 @@ const Projects = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full mr-4 overflow-hidden">
-                    {testimonial.image}
+                  <div className="w-16 h-16 rounded-full mr-4 overflow-hidden bg-primary-600 dark:bg-primary-500 flex items-center justify-center text-white text-xl font-semibold">
+                    {testimonial.initials}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-secondary-900 dark:text-white">

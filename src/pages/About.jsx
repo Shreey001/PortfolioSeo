@@ -8,6 +8,7 @@ import {
   FiGitBranch,
   FiCloud,
 } from "react-icons/fi";
+import { BsLaptop, BsCode, BsBriefcase } from "react-icons/bs";
 import AnimatedSection from "../components/AnimatedSection";
 import Seo from "../components/Seo";
 // import PlaceholderImage from "../components/PlaceholderImage";
@@ -16,7 +17,8 @@ import profile from "../assets/social/profile.jpg";
 // Placeholder resume - replace with your actual resume file
 // import resumePdf from "../assets/resume.pdf";
 // Using a placeholder URL instead of a real file
-const resumePdf = "#"; // This will be a placeholder that keeps the download button but doesn't try to download a real file
+const resumePdf =
+  "https://drive.google.com/file/d/1GvMFnckrIWv-DJ_XbK6_5BudGP1tGlji/view";
 
 const About = () => {
   // Skills data
@@ -68,25 +70,37 @@ const About = () => {
   // Experience data
   const experiences = [
     {
-      title: "Senior Frontend Developer",
-      company: "Tech Solutions Inc.",
-      period: "2021 - Present",
+      title: "Full Stack Developer Intern",
+      company: "Lunar It Solutions pvt Ltd.",
+      period: "2025 - Present",
       description:
-        "Lead frontend development for enterprise applications, mentoring junior developers, and implementing best practices for code quality and performance.",
+        "Leading the frontend development team in building scalable web applications using React and Next.js. Implemented modern UI/UX practices and improved performance metrics by 40%.",
+      icon: BsLaptop,
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Redux",
+        "Performance Optimization",
+      ],
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Agency XYZ",
-      period: "2018 - 2021",
+      title: "Frontend Developer Intern",
+      company: "Digital Pathsala Ltd.",
+      period: "2023 - 2024",
       description:
-        "Developed responsive web applications for various clients using React, Redux, and modern CSS frameworks.",
+        "Developed and maintained full-stack applications using MERN stack. Led a team of 4 developers and successfully delivered 10+ projects.",
+      icon: BsCode,
+      skills: ["Node.js", "React", "MongoDB", "Express", "AWS"],
     },
     {
-      title: "Web Developer Intern",
-      company: "Startup ABC",
-      period: "2017 - 2018",
+      title: "Frontend Developer Trainee",
+      company: "Butwal Multiple Campus",
+      period: "2022 - 2023",
       description:
-        "Assisted in developing and maintaining company websites and web applications.",
+        "Specialized in creating responsive and interactive web interfaces. Collaborated with designers to implement pixel-perfect designs.",
+      icon: BsBriefcase,
+      skills: ["JavaScript", "HTML/CSS", "React", "UI/UX", "Responsive Design"],
     },
   ];
 
@@ -95,14 +109,14 @@ const About = () => {
     {
       degree: "Bachelor of Science in Computer Science",
       institution: "University of Technology",
-      period: "2014 - 2018",
+      period: "2022 - 2025",
       description:
         "Focused on web development, algorithms, and software engineering principles.",
     },
     {
       degree: "Full Stack Web Development Bootcamp",
       institution: "Code Academy",
-      period: "2017",
+      period: "2023",
       description:
         "Intensive 12-week program covering modern web development technologies and practices.",
     },
@@ -140,14 +154,8 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-600/70 via-primary-600/0 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8 z-20 rounded-lg">
                   <motion.a
                     href={resumePdf}
-                    onClick={(e) => {
-                      if (resumePdf === "#") {
-                        e.preventDefault();
-                        alert(
-                          "This is a placeholder. Add your actual resume PDF to make this download work."
-                        );
-                      }
-                    }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-4 py-2 bg-white text-primary-600 rounded-lg shadow-md flex items-center gap-2 hover:bg-primary-50 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -208,14 +216,8 @@ const About = () => {
               >
                 <a
                   href={resumePdf}
-                  onClick={(e) => {
-                    if (resumePdf === "#") {
-                      e.preventDefault();
-                      alert(
-                        "This is a placeholder. Add your actual resume PDF to make this download work."
-                      );
-                    }
-                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-primary flex items-center gap-2"
                 >
                   <FiDownload /> Download Resume
@@ -298,7 +300,9 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true, amount: 0.2 }}
               >
-                <div className="absolute left-0 top-0 w-4 h-4 rounded-full bg-primary-600 dark:bg-primary-400 -translate-x-1/2" />
+                <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-primary-600 dark:bg-primary-400 -translate-x-1/2 flex items-center justify-center text-white">
+                  <exp.icon size={16} />
+                </div>
                 <div className="mb-1 text-primary-600 dark:text-primary-400 font-medium">
                   {exp.period}
                 </div>
@@ -308,9 +312,19 @@ const About = () => {
                 <div className="text-secondary-600 dark:text-secondary-400 mb-3">
                   {exp.company}
                 </div>
-                <p className="text-secondary-600 dark:text-secondary-300">
+                <p className="text-secondary-600 dark:text-secondary-300 mb-4">
                   {exp.description}
                 </p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 text-sm rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>

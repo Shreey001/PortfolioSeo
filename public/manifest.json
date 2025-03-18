@@ -1,0 +1,20 @@
+{
+  "short_name": "ShreeyJan",
+  "name": "ShreeyJan | Web Developer & Designer",
+  "description": "Professional web developer portfolio showcasing projects and skills",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "categories": ["portfolio", "web development"],
+  "lang": "en",
+  "dir": "ltr"
+} 

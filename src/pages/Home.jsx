@@ -8,37 +8,43 @@ import Seo from "../components/Seo";
 import PlaceholderImage from "../components/PlaceholderImage";
 // import developer from "../assets/social/dev.jpg";
 import developer from "../assets/social/developer.png";
+import project1 from "../assets/projects/project1.png";
+import project2 from "../assets/projects/project2.png";
+import project6 from "../assets/projects/project6.png";
+import project3 from "../assets/projects/project3.png";
 
 const Home = () => {
   // Featured projects data
   const featuredProjects = [
     {
-      title: "E-Commerce Platform",
+      title: "Trendify-Fashion E-Commerce Platform",
       description:
-        "A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product search, cart functionality, and payment processing.",
-      image: <PlaceholderImage text="E-Commerce Platform" />,
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+        "Full-stack Fashion clothing e-commerce solution with user authentication, payment processing, and order management.",
+      image: project2,
+      tags: ["React", "Node.js", "MongoDB", "Express"],
+      liveUrl: "https://trendify-frontend-dusky.vercel.app/",
+      githubUrl: "https://github.com/Shreey001/Trendify-Fashion-Ecommerce-Site",
       featured: true,
     },
     {
-      title: "Task Management App",
+      title: "Vistagram-Connect and Inspire",
       description:
-        "A productivity app for managing tasks and projects with team collaboration features.",
-      image: <PlaceholderImage text="Task Management App" bgColor="#0369a1" />,
-      tags: ["React", "Firebase", "Tailwind CSS"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+        "A fullstack social media platform with user authentication, post creation, and real-time updates.",
+      image: project3,
+      tags: ["React", "Node.js", "MongoDB", "Socket.io"],
+      liveUrl: "https://vistagram.vercel.app",
+      githubUrl: "https://github.com/Shreey001/vistagram",
+      featured: true,
     },
     {
-      title: "Task Management App",
+      title: "Personal Portfolio",
       description:
-        "A productivity app for managing tasks and projects with team collaboration features.",
-      image: <PlaceholderImage text="Task Management App" bgColor="#0369a1" />,
-      tags: ["React", "Firebase", "Tailwind CSS"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/project",
+        "A personal portfolio website to showcase my projects and skills.",
+      image: project6,
+      tags: ["React", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "https://portfolio-seo-nu.vercel.app/",
+      githubUrl: "https://github.com/Shreey001/PortfolioSeo",
+      featured: true,
     },
   ];
 
